@@ -34,7 +34,22 @@ int main()
             std::cout << "" << values[i] << "";
             if (i < values.size() - 1) std::cout << ", ";
         }
-        std::cout << std::endl;
+        // Print the raw line 
+        std::cout << "Line: " << line << std::endl;
+
+        // Parse into fields
+        std::stringstream ss(line);
+        std::string field;
+        int fieldNumber = 1;
+
+        while (std::getline(ss, field, ',')) {
+            std::cout << "Field " << fieldNumber << ": '" << field <<
+        "'" << std::endl;
+            fieldNumber++;
+    }
+
+    std::cout << std::endl; // separate rows
+
     }
 
     file.close();
